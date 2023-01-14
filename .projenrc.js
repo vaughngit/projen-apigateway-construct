@@ -55,7 +55,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   },
   //NPMJS Package
   //publishDryRun: true,
-  //releaseToNpm: false,
+  releaseToNpm: false,
 
   // packageName: 'vt-lambda-construct',
   /*
