@@ -18,7 +18,7 @@ export class IntegTesting {
 
 
     const app = new App();
-    const stack = new Stack(app, 'IntegratedApiGatewayTestStack', {
+    const stack = new Stack(app, 'IntegratedLambdaTestStack', {
       env,
       tags: {
         solution,
