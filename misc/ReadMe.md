@@ -10,6 +10,9 @@
     npx cdk destroy --app='./lib/integ.powertools-ts.js'
     Once the build is successful its ready to deploy locally.
 
+    npx cdk synth --app='./lib/integ-test/integ.test.apigateway.js'
+    npx cdk deploy --app='./lib/integ-test/integ.test.apigateway.js'
+
 ## typescript functions follow up reading: 
     https://subaud.io/blog/using-a-typescript-lambda-as-a-cdk-construct-custom-resource
     https://subaud.io/blog/building-cdk-custom-resource-constructs-with-projen-and-typescript
