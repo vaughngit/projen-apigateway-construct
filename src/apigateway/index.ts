@@ -23,7 +23,8 @@ import { Construct } from 'constructs';
  *
  * @see https://aws.github.io/jsii/user-guides/lib-author/typescript-restrictions/#interfaces
  */
-export interface IcustomApiProps {
+
+export interface IApiProps {
   /** Api Name */
   restApiName: string;
   /** Api Description */
@@ -33,7 +34,7 @@ export interface IcustomApiProps {
 /**
  * Creates an API Gateway instance with standard settings.
  */
-export class CustomApi extends Construct {
+export class VTApi extends Construct {
   /** API construct */
   api: RestApi;
 
@@ -54,7 +55,7 @@ export class CustomApi extends Construct {
      * @param {string} id
      * @param {CustomApiProps} props
      */
-  constructor(parent: Stack, name: string, props: IcustomApiProps) {
+  constructor(parent: Stack, name: string, props: IApiProps) {
     super(parent, name);
 
     const {
