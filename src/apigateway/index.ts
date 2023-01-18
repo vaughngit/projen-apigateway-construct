@@ -51,8 +51,8 @@ export class VTApi extends Construct {
   dashboardWidgets: IWidget[];
 
   /**
-     * @param {Construct} scope
-     * @param {string} id
+     * @param {Construct} parent
+     * @param {string} name
      * @param {CustomApiProps} props
      */
   constructor(parent: Stack, name: string, props: IApiProps) {
@@ -70,8 +70,8 @@ export class VTApi extends Construct {
       description,
       // deploy: false,
       deployOptions: {
-        stageName: 'v1',
-        description: 'V1 Deployment',
+        stageName: 'Prodv1',
+        description: 'Prod V1 Deployment',
         /**
          * Enable tracing and logging in JSON format for the API.
          */
@@ -90,17 +90,20 @@ export class VTApi extends Construct {
           resourcePath: AccessLogField.contextResourcePath(),
           traceId: AccessLogField.contextXrayTraceId(),
         })),
+
         /**
          * Execution logs.
          * Only required for debugging.
          * Creates an additional log group that we cannot control.
          */
         loggingLevel: MethodLoggingLevel.OFF,
+
         /**
          * Enable Details Metrics. Additional costs incurred
          * Creates metrics at the method level.
          */
         metricsEnabled: false,
+
       },
       defaultCorsPreflightOptions: {
         allowHeaders: [
@@ -120,10 +123,7 @@ export class VTApi extends Construct {
 
     this.api = api;
 
-    new CfnOutput(this, 'apiUrl', {
-      description: 'API URL',
-      value: api.url,
-    });
+    new CfnOutput(this, 'apiUrl', {  description: 'API URL',  value: api.url, });
 
     /*
     // Lambda integration props for API methods
@@ -268,7 +268,7 @@ export class VTApi extends Construct {
       ],
     };
 
-    // Default method responses
+    // method responses
     this.customMethodProps = {
       methodResponses: [
         {
